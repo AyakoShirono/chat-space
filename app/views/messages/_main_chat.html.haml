@@ -1,0 +1,28 @@
+.Chat-main
+  .Group-info
+    .Group-info__items
+      .Group-info__items__title
+        test
+      .Group-info__items__member
+        mn
+    .Group-info__edit
+      =link_to "Edit", "#", class:"Chat-main__group-info__edit__btn" 
+  .Message-list
+    .Message-list__items
+      .Message-list__items__message-info
+        .Message-list__items__message-info__name
+          name
+        .Message-list__items__message-info__day-and-time
+          202007111104
+      .Message-list__items__text
+        message-text
+  .Message-form
+    %form.Message-form__contents
+      .Message-form__contents__input
+        %input.Message-form__contents__input__text{"placeholder": "type a message", "type": "text"}
+        %label.Message-form__contents__input__image
+          = icon('fas', 'image')
+          .Message-form__contents__input__image__form
+            %input{type: 'file', class: ".Message-form__contents__input__image__form__hidden"}
+      %input.Message-form__contents__submit{"type": "submit", "value": "Send"}
+      
