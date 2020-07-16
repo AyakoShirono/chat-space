@@ -11,13 +11,11 @@
           = icon('fa', 'cog', class: "Side-bar__user-name__top-items__icon__btn")
           %span<>
   .Side-bar__group-list
-    .Side-bar__group-list__items
-      .Side-bar__group-list__items__title
-        techcamp
-      .Side-bar__group-list__items__message
-        まだメッセージはありません
-    .Side-bar__group-list__items
-      .Side-bar__group-list__items__title
-        techcamp
-      .Side-bar__group-list__items__message
-        まだメッセージはありません
+    - current_user.groups.each do |group|
+      .Side-bar__group-list__items
+        = link_to '#' do
+          .Side-bar__group-list__items__title
+            = group.name
+          .Side-bar__group-list__items__message
+            まだメッセージはありません
+    
