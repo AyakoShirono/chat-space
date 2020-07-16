@@ -4,7 +4,7 @@
       %h3.Side-bar__user-name__top-items__name
         = current_user.name
       .Side-bar__user-name__top-items__icon
-        = link_to "#" do
+        = link_to new_group_path do
           = icon('far', 'edit', class: "Side-bar__user-name__top-items__icon__btn")
           %span<>
         = link_to edit_user_path(current_user) do
