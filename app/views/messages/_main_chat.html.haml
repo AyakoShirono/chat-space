@@ -2,27 +2,21 @@
   .Group-info
     .Group-info__items
       .Group-info__items__title
-        test
+        = @group.name
       .Group-info__items__member
-        mn
+        - @group.users.each do |user|
+          = user.name
     .Group-info__edit
-      =link_to "Edit", "#", class:"Chat-main__group-info__edit__btn" 
+      = link_to "Edit", edit_group_path(@group), class:"Chat-main__group-info__edit__btn" 
   .Message-list
-    .Message-list__items
-      .Message-list__items__message-info
-        .Message-list__items__message-info__name
-          name
-        .Message-list__items__message-info__day-and-time
-          202007111104
-      .Message-list__items__text
-        message-text
+    = render @messages
   .Message-form
-    %form.Message-form__contents
+    = form_with model: [@group, @message], html: {class: "Message-form__contents"}, local: true do |f|
       .Message-form__contents__input
-        %input.Message-form__contents__input__text{"placeholder": "type a message", "type": "text"}
-        %label.Message-form__contents__input__image
+        = f.text_field :content, class: 'Message-form__contents__input__text', placeholder: 'type a message'
+        = f.label :image, class: 'Message-form__contents__input__image' do
           = icon('fas', 'image')
           .Message-form__contents__input__image__form
-            %input{type: 'file', class: ".Message-form__contents__input__image__form__hidden"}
-      %input.Message-form__contents__submit{"type": "submit", "value": "Send"}
+            = f.file_field :image, class: 'Message-form__contents__input__image__form__hidden'
+      = f.submit 'Send', class: 'Message-form__contents__submit'
       
