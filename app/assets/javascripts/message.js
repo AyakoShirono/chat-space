@@ -40,7 +40,6 @@ $(function(){
   }
 
   $('.Message-form__contents').on('submit', function(e){
-    console.log("test")
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
@@ -58,9 +57,9 @@ $(function(){
       $('.Message-list').animate({ scrollTop: $('.Message-list')[0].scrollHeight});
       $('form')[0].reset();
       $('.Message-form__contents__submit').prop('disabled', false);
-    });
+    })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
-    });
+  });
   });
 })
