@@ -95,6 +95,7 @@
   .Message-list{
     height: calc(100vh - 100px - 90px);
     background-color: #fafafafa;
+    overflow: scroll;
     &__items{
       padding: 35px 40px 0;
       &__message-info{
