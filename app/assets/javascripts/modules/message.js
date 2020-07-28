@@ -60,6 +60,7 @@ $(function(){
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
+      $('.Message-form__contents__submit').prop('disabled', false);
     });
   });
 });
